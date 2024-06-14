@@ -1,0 +1,185 @@
+/* styles.css */
+
+/* Reset some basic elements for consistency across browsers */
+body, h1, p, input, button, label {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+}
+
+.display-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.display-container input {
+    width: calc(100% - 50px);
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.display-container input:focus {
+    border-color: #3b82f6;
+}
+
+.display-container button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+}
+
+.tooltip.active {
+    left: 60%;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.copyBtn:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    left: 70%;
+}
+
+.input-container {
+    text-align: left;
+    animation: slideIn 1s ease-in-out;
+}
+
+.length-container, .strength-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.slider {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #3b82f6 0%, #3b82f6 var(--value), #ddd var(--value), #ddd 100%);
+    outline: none;
+    transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb {
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #2563eb;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.check input {
+    margin-right: 10px;
+}
+
+.indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.strength-container {
+    display: flex;
+    align-items: center;
+}
+
+.generateButton {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+.generateButton:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
